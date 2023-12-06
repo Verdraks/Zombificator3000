@@ -13,6 +13,7 @@ public:
 
 	bool CheckIsZombified();
 	void HandleInfection();
+	ZombificationState GetState();
 	void SetNewZombieficationState(ZombificationState newState);
 	void SetSalary(int salary);
 	float GetSalary();

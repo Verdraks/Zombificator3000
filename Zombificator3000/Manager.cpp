@@ -21,11 +21,28 @@ void Manager::Run()
 
 		this->company.CalculRatioInfected();
 		this->company.CostSalaryTurn();
-		this->ShowDay(i + 1);
+		if (!this->isGameOver) this->ShowDay(i + 1);
 		this->CheckEndGame();
-		if (this->isGameOver) break;
+
 	}
 	this->ShowEndGame();
+}
+
+void Manager::DND()
+{
+	int tmpDND = rand() % 7;
+	tmpDND += rand() % 7;
+	if (tmpDND >= 12) ApplyDND(true,4);
+	else if (tmpDND >= 7) ApplyDND(false,2);
+	else if (tmpDND >= 3) ApplyDND(false,1);
+}
+
+void Manager::ApplyDND(bool zombified, int nb) {
+	int nbApply = 0;
+	for (auto& employee : this->company.employees) {
+		if (employee.GetState() == Employee::SANE && nbApply < nb) employee.SetNewZombieficationState((zombified) ? Employee::ZOMBIFIED : Employee::INCUBATING);
+		if (nb >= nbApply) break;
+	}
 }
 
 void Manager::CheckEndGame()

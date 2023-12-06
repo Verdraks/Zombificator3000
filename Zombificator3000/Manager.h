@@ -10,6 +10,8 @@ public:
 	void Run();
 
 private:
+	void DND();
+	void ApplyDND(bool zombified, int nb);
 	void CheckEndGame();
 	void UpdateSalary();
 	void CalculIfZombified(Employee* employee);

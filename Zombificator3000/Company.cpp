@@ -7,7 +7,7 @@ Company::Company()
 		this->employees.push_back(*new Employee());
 		this->employees[i].SetSalary(this->baseSalary);
 	}
-	this->employees[0].SetNewZombieficationState(Employee::ZOMBIFIED);
+	this->employees[0].SetNewZombieficationState(Employee::INCUBATING);
 	this->employees[0].SetSalary(this->modifiedSalary);
 }
 

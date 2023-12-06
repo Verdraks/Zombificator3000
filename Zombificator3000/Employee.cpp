@@ -21,6 +21,11 @@ void Employee::HandleInfection()
     if (this->state == ZombificationState::INCUBATING) { if (this->turnInfected >= 2) this->state = ZombificationState::ZOMBIFIED; else this->turnInfected++; }
 }
 
+Employee::ZombificationState Employee::GetState()
+{
+    return this->state;
+}
+
 void Employee::SetNewZombieficationState(ZombificationState newState)
 {
     this->state = newState;

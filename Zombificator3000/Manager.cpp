@@ -3,31 +3,54 @@
 Manager::Manager()
 {
 	this->company = *new Company();
-	srand(time(NULL));
+	srand(time(0));
+	this->company.GetRatioInfected();
 }
 
 void Manager::Run()
 {
 	for (int i = 0; i < this->nbDaysGame; i++) {
 
-		for (auto& employee : this->company.employees) {
+		for (auto &employee : this->company.employees) {
 
-			CalculIfZombified(employee);
+			this->CalculIfZombified(&employee);
 			employee.HandleInfection();
 		}
 
-		this->company.GetRatioInfected();
+		this->UpdateSalary();
+
+		this->company.CalculRatioInfected();
 		this->company.CostSalaryTurn();
+		this->ShowDay(i + 1);
+		this->CheckEndGame();
+		if (this->isGameOver) break;
 	}
+	this->ShowEndGame();
 }
 
-void Manager::CalculIfZombified(Employee &employee)
+void Manager::CheckEndGame()
 {
-	if (rand() % (this->company.employees.size() + 1) <= this->company.GetRatioInfected()) employee.SetNewZombieficationState(Employee::INCUBATING);
+	this->isGameOver = this->company.GetRatioInfected() >= 100;
 }
 
-void Manager::ShowDay()
+void Manager::UpdateSalary()
 {
+	for (auto& employee : this->company.employees) { employee.SetSalary((employee.CheckIsZombified()) ? this->company.GetmodifiedSalary() : this->company.GetmodifiedSalary()); }
+}
+
+void Manager::CalculIfZombified(Employee *employee)
+{
+	if (rand() % (this->company.employees.size() + 1) <= this->company.GetRatioInfected()) employee->SetNewZombieficationState(Employee::INCUBATING);
+}
+
+void Manager::ShowDay(int day)
+{
+	cout << "Current day: " << day << "| Infected: " << this->company.GetRatioInfected() << "%" << endl;
+}
+
+void Manager::ShowEndGame()
+{
+	cout << "You just finish with a total cost of your company: " << this->company.GetCostTotal() << "k" << endl;
 }
 
 

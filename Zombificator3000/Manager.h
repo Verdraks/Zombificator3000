@@ -10,9 +10,13 @@ public:
 	void Run();
 
 private:
-	void CalculIfZombified(Employee& employee);
-	void ShowDay();
-	int nbDaysGame;
+	void CheckEndGame();
+	void UpdateSalary();
+	void CalculIfZombified(Employee* employee);
+	void ShowDay(int day);
+	void ShowEndGame();
+	int nbDaysGame = 28;
+	bool isGameOver;
 	Company company;
 };
 

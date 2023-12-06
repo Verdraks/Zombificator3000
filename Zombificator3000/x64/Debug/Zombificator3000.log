@@ -1,3 +1,4 @@
-﻿  Employee.cpp
-C:\Users\o_martinez1\Downloads\Zombificator3000\Zombificator3000\Employee.cpp(31,20): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+﻿  Manager.cpp
+C:\Users\o_martinez1\Downloads\Zombificator3000\Zombificator3000\Manager.cpp(6,12): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+C:\Users\o_martinez1\Downloads\Zombificator3000\Zombificator3000\Manager.cpp(38,96): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
   Zombificator3000.vcxproj -> C:\Users\o_martinez1\Downloads\Zombificator3000\x64\Debug\Zombificator3000.exe

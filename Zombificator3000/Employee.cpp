@@ -18,7 +18,7 @@ bool Employee::CheckIsZombified()
 
 void Employee::HandleInfection()
 {
-    if (this->state == ZombificationState::INCUBATING) if (this->turnInfected >= 2) this->state = ZombificationState::ZOMBIFIED; else this->turnInfected++;
+    if (this->state == ZombificationState::INCUBATING) { if (this->turnInfected >= 2) this->state = ZombificationState::ZOMBIFIED; else this->turnInfected++; }
 }
 
 void Employee::SetNewZombieficationState(ZombificationState newState)

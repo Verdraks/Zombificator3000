@@ -1,7 +1,4 @@
-﻿  Main.cpp
-  Manager.cpp
+﻿  Manager.cpp
 C:\Users\o_martinez1\Downloads\Zombificator3000\Zombificator3000\Manager.cpp(6,12): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
-C:\Users\o_martinez1\Downloads\Zombificator3000\Zombificator3000\Manager.cpp(38,8): error C2059: erreur de syntaxe : '>'
-C:\Users\o_martinez1\Downloads\Zombificator3000\Zombificator3000\Manager.cpp(42,2): warning C4065: l'instruction switch contient 'default' mais aucune étiquette 'case'
-C:\Users\o_martinez1\Downloads\Zombificator3000\Zombificator3000\Manager.cpp(54,96): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
-  Génération de code en cours...
+C:\Users\o_martinez1\Downloads\Zombificator3000\Zombificator3000\Manager.cpp(56,96): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+  Zombificator3000.vcxproj -> C:\Users\o_martinez1\Downloads\Zombificator3000\x64\Debug\Zombificator3000.exe

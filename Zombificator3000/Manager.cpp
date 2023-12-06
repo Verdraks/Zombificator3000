@@ -21,7 +21,8 @@ void Manager::Run()
 
 		this->company.CalculRatioInfected();
 		this->company.CostSalaryTurn();
-		if (!this->isGameOver) this->ShowDay(i + 1);
+		
+		if (!this->isGameOver) { this->DND(); this->ShowDay(i + 1); }
 		this->CheckEndGame();
 
 	}
@@ -30,11 +31,11 @@ void Manager::Run()
 
 void Manager::DND()
 {
-	int tmpDND = rand() % 7;
-	tmpDND += rand() % 7;
-	if (tmpDND >= 12) ApplyDND(true,4);
-	else if (tmpDND >= 7) ApplyDND(false,2);
-	else if (tmpDND >= 3) ApplyDND(false,1);
+	int tmpDND = (rand() % 7)+1;
+	tmpDND += (rand() % 7) + 1;
+	if (tmpDND >= 12) { ApplyDND(true, 4); cout << "Oh no your have a really badluck, it's time to PlantVsZombie, +4 zombified !" << endl; }
+	else if (tmpDND >= 7) { ApplyDND(false, 2); cout << "One of youre employee decide to take too many good time, +2 infected !" << endl; }
+	else if (tmpDND >= 3) { ApplyDND(false, 1); cout << "You discover a kniffe and cut yourself, stupid guy... , +1 infected !" << endl;}
 }
 
 void Manager::ApplyDND(bool zombified, int nb) {
@@ -62,7 +63,8 @@ void Manager::CalculIfZombified(Employee *employee)
 
 void Manager::ShowDay(int day)
 {
-	cout << "Current day: " << day << "| Infected: " << this->company.GetRatioInfected() << "%" << endl;
+	cout << "Current day: " << day << "| Zombified: " << this->company.GetRatioInfected() << "%" << endl;
+	cout << endl;
 }
 
 void Manager::ShowEndGame()

@@ -11,6 +11,7 @@ public:
 
 private:
 	void CalculIfZombified(Employee& employee);
+	void ShowDay();
 	int nbDaysGame;
 	Company company;
 };

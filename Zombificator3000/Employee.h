@@ -3,7 +3,7 @@ class Employee
 {
 public:
 
-	Employee(int index);
+	Employee();
 
 	enum ZombificationState {
 		SANE,
@@ -18,6 +18,7 @@ public:
 	float GetSalary();
 
 private:
+	static int index;
 	float salary;
 	int iD;
 	int turnInfected;

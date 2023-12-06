@@ -1,8 +1,11 @@
 #include "Employee.h"
 
-Employee::Employee(int index)
+int Employee::index = 0;
+
+Employee::Employee()
 {
-    this->iD = index;
+    this->iD = Employee::index;
+    Employee::index++;
     this->salary = 0;
     this->state = ZombificationState::SANE;
     this->turnInfected = 0;

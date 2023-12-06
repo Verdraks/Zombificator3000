@@ -15,6 +15,9 @@ void Manager::Run()
 			CalculIfZombified(employee);
 			employee.HandleInfection();
 		}
+
+		this->company.GetRatioInfected();
+		this->company.CostSalaryTurn();
 	}
 }
 
@@ -22,4 +25,10 @@ void Manager::CalculIfZombified(Employee &employee)
 {
 	if (rand() % (this->company.employees.size() + 1) <= this->company.GetRatioInfected()) employee.SetNewZombieficationState(Employee::INCUBATING);
 }
+
+void Manager::ShowDay()
+{
+}
+
+
 

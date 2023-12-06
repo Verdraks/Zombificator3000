@@ -27,3 +27,8 @@ void Employee::SetSalary(int salary)
 {
     this->salary = salary;
 }
+
+float Employee::GetSalary()
+{
+    return this->salary;
+}

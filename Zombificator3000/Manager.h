@@ -10,6 +10,7 @@ public:
 	void Run();
 
 private:
+	void CalculIfZombified(Employee& employee);
 	int nbDaysGame;
 	Company company;
 };

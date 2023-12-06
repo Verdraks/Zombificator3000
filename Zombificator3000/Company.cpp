@@ -13,4 +13,21 @@ Company::Company()
 
 void Company::CostSalaryTurn()
 {
+	for (auto& employee : this->employees) {
+		this->costTotalSalary += employee.GetSalary();
+	}
+}
+
+float Company::GetRatioInfected()
+{
+	return this->ratioInfected;
+}
+
+void Company::CalculRatioInfected()
+{
+	int tmpRatio = 0;
+	for (auto& employee : this->employees) {
+		if (employee.CheckIsZombified()) tmpRatio++;
+	}
+	this->ratioInfected = (float)tmpRatio / (float)this->employees.size() * (float)100;
 }

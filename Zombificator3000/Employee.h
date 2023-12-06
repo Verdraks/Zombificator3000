@@ -15,9 +15,10 @@ public:
 	void HandleInfection();
 	void SetNewZombieficationState(ZombificationState newState);
 	void SetSalary(int salary);
+	float GetSalary();
 
 private:
-	int salary;
+	float salary;
 	int iD;
 	int turnInfected;
 	ZombificationState state;

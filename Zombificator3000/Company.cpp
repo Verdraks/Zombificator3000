@@ -2,19 +2,25 @@
 
 Company::Company()
 {
-	this->employees = *new vector<Employee>;
-	for (int i = 0; i < this->nbEmployees; i++) {
-		this->employees.push_back(*new Employee());
-		this->employees[i].SetSalary(this->baseSalary);
+	this->employees = new vector<unique_ptr<Employee>>();
+	for (int i = 0; i < nbEmployees; i++) {
+		employees->push_back(make_unique<Employee>());
+		(*employees)[i]->SetSalary(this->baseSalary);
 	}
-	this->employees[0].SetNewZombieficationState(Employee::INCUBATING);
-	this->employees[0].SetSalary(this->modifiedSalary);
+
+	(*employees)[0]->SetNewZombieficationState(Employee::INCUBATING);
+	(*employees)[0]->SetSalary(this->modifiedSalary);
+}
+
+Company::~Company() {
+	delete this->employees;
+	this->employees = nullptr;
 }
 
 void Company::CostSalaryTurn()
 {
-	for (auto& employee : this->employees) {
-		this->costTotalSalary += (employee.GetSalary()/228);
+	for (auto& employee : *this->employees) {
+		this->costTotalSalary += (employee->GetSalary()/228);
 	}
 }
 
@@ -31,10 +37,10 @@ float Company::GetCostTotal()
 void Company::CalculRatioInfected()
 {
 	int tmpRatio = 0;
-	for (auto& employee : this->employees) {
-		if (employee.CheckIsZombified()) tmpRatio++;
+	for (auto& employee : *this->employees) {
+		if (employee->CheckIsZombified()) tmpRatio++;
 	}
-	this->ratioInfected = (float)tmpRatio / this->employees.size() * 100;
+	this->ratioInfected = (float)tmpRatio / this->employees->size() * 100;
 }
 
 float Company::GetBaseSalary()

@@ -1,16 +1,16 @@
-#ifndef  Company_h
+#ifndef Company_h
 #define Company_h
 
 #include "Employee.h"
-#include "Header.h"
 
 class Company
 {
 public:
 	int nbEmployees = 100;
-	vector<Employee> employees;
+	vector<unique_ptr<Employee>> *employees;
 	
 	Company();
+	~Company();
 
 	void CostSalaryTurn();
 	void CalculRatioInfected();
@@ -27,7 +27,4 @@ private:
 	float ratioInfected = 0;
 };
 
-#endif // ! Company
-
-
-
+#endif

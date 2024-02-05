@@ -18,17 +18,17 @@ bool Employee::CheckIsZombified()
 
 void Employee::HandleInfection()
 {
-    if (this->state == ZombificationState::INCUBATING) { if (this->turnInfected >= 2) this->state = ZombificationState::ZOMBIFIED; else this->turnInfected++; }
+    if (state == ZombificationState::INCUBATING) { if (turnInfected >= 2) state = ZombificationState::ZOMBIFIED; else this->turnInfected++; }
 }
 
 Employee::ZombificationState Employee::GetState()
 {
-    return this->state;
+    return state;
 }
 
 void Employee::SetNewZombieficationState(ZombificationState newState)
 {
-    this->state = newState;
+    state = newState;
 }
 
 void Employee::SetSalary(int salary)

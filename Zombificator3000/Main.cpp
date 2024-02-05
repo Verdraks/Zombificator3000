@@ -1,9 +1,14 @@
 #include "Manager.h"
 
+void RunDiagnostic() {
+	shared_ptr<Manager> manager = make_shared<Manager>();
+
+	manager->Run();
+}
+
 int main() {
 
-	Manager manager = *new Manager();
-	manager.Run();
+	RunDiagnostic();
 
 	return 0;
 }

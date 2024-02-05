@@ -1,11 +1,16 @@
-#pragma once
+#ifndef Employee_h
+#define Employee_h
+
+#include "Header.h"
+
 class Employee
 {
 public:
 
 	Employee();
 
-	enum ZombificationState {
+	enum ZombificationState
+	{
 		SANE,
 		INCUBATING,
 		ZOMBIFIED,
@@ -24,6 +29,6 @@ private:
 	int iD;
 	int turnInfected;
 	ZombificationState state;
-
 };
 
+#endif 
